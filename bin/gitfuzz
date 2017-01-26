@@ -4,6 +4,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 $application = new Symfony\Component\Console\Application();
 $application->add(new Gitfuzz\Command\FuzzCommand());
+$application->add(new Gitfuzz\Command\InitConfigCommand());
 
 $application->setDefaultCommand('fuzz');
 $application->run();
