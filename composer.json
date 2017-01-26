@@ -1,0 +1,23 @@
+{
+    "name": "radmen/gitfuzz",
+    "description": "Simple CLI app to make fuzz in git repo Edit",
+    "type": "project",
+    "require": {
+        "symfony/console": "^3.2",
+        "symfony/process": "^3.2",
+        "fzaninotto/faker": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gitfuzz\\": "src"
+        }
+    },
+    "bin": ["bin/gitfuzz"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Radoslaw Mejer",
+            "email": "radmen@radmen.info"
+        }
+    ]
+}
