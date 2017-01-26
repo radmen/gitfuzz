@@ -3,7 +3,7 @@ Simple CLI app to make fuzz in git repo
 
 # Usage
 
-To work gitfuzz requires generating [config file](#Configuration).
+To work gitfuzz requires generating [config file](#configuration).
 
 Ater that run this command in GIT repo root directory:
 
