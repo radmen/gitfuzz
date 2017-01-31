@@ -8,7 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
+use Symfony\Component\Process\ProcessBuilder;
 
 class FuzzCommand extends Command
 {
@@ -47,7 +47,18 @@ class FuzzCommand extends Command
 
             $output->writeln("New commit: {$commitMessage} <comment>by {$author}</comment>");
 
-            $process = new Process("git commit -m '{$commitMessage}' --allow-empty --author '{$author}'");
+            $builder = new ProcessBuilder();
+            $builder->setPrefix('git');
+            $builder->setArguments([
+                'commit',
+                '-m',
+                $commitMessage,
+                '--allow-empty',
+                '--author',
+                $author,
+            ]);
+            
+            $process = $builder->getProcess();
             $process->run();
 
             if (false === $process->isSuccessful()) {
