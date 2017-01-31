@@ -43,7 +43,7 @@ class FuzzCommand extends Command
         $numberOfCommits = mt_rand($config['commits']['min'], $config['commits']['max']);
         $makeCommit = function () use ($config, $output) {
             $author = $this->faker->randomElement($config['authors']);
-            $commitMessage = $this->faker->sentence;
+            $commitMessage = $this->faker->realText($this->faker->numberBetween(20, 72));
 
             $output->writeln("New commit: {$commitMessage} <comment>by {$author}</comment>");
 
